@@ -3,6 +3,7 @@ const luckyNumbersButton = document.querySelector('');
 //When it's clicked, launch `luckify`.
 luckyNumbersButton.onclick = luckify;
 
+
 // TODO: Find the biggify numbers button on our page.
 const biggifyNumbersButton = document.querySelector('');
 //When it's clicked, launch `biggify`.
@@ -12,6 +13,7 @@ biggifyNumbersButton.onclick = biggify;
 const crazifyStringButton = document.querySelector('');
 //When it's clicked, launch `stringify`.
 crazifyStringButton.onclick = stringify;
+
 
 // TODO: Find the reverse string button on our page.
 const reverseStringButton = document.querySelector('');
@@ -30,7 +32,7 @@ function luckify(event) {
 */
   clearList();
   
-  // TODO: Find the input box the user is typing in and put it in a variable.
+  // TODO: Find the input box the user is typing in and put the DOM node in a variable.
   // Make sure you're using the right selector!
   const inputBox = document.querySelector('');
   
@@ -74,7 +76,7 @@ function biggify(event) {
 */
   clearList();
   
-  // TODO: Find the input box the user is typing in and put it in a variable.
+  // TODO: Find the input box the user is typing in and put the DOM node in a variable.
   // Make sure you're using the right selector!
   const inputBox = document.querySelector('');
   
@@ -84,9 +86,11 @@ function biggify(event) {
 
 
   /*
-    TODO: Print out the numbers from 1 to the number they typed in, as long as they are divisible by 7 or 13.
+    TODO: Multiply the number they've given you by 9000.
 
-    Use the pre-defined `printValue` function below to print out each line,
+    A hint: if this isn't working, it _might_ be because of the JavaScript type of the data coming in.
+
+    Use the pre-defined `printValue` function below to print out the result,
     giving it the value you want to print.
     
     Essentially, you can use `printValue` the same way you would `console.log`,
@@ -118,8 +122,8 @@ function crazyify(event) {
 */
   clearList();
   
-  // TODO: Find the input box the user is typing in and put it in a variable.
-  // Make sure you're using the right selector!
+  // TODO: Find the input box the user is typing in and put the DOM node in a variable.
+  // Make sure you're using the right selector!t
   const inputBox = document.querySelector('');
   
   // TODO: Use the variable you saved in the above step to dive deeper into the
@@ -128,9 +132,11 @@ function crazyify(event) {
 
 
   /*
-    TODO: Print out the numbers from 1 to the number they typed in, as long as they are divisible by 7 or 13.
+    TODO: Loop through and capitalize every character with an even-numbered index.
 
-    Use the pre-defined `printValue` function below to print out each line,
+    Hint: you'll probably have to "build" a new string as you loop.
+
+    Use the pre-defined `printValue` function below to print out result,
     giving it the value you want to print.
     
     Essentially, you can use `printValue` the same way you would `console.log`,
@@ -162,7 +168,7 @@ function reverse(event) {
 */
   clearList();
   
-  // TODO: Find the input box the user is typing in and put it in a variable.
+  // TODO: Find the input box the user is typing in and put the DOM node in a variable.
   // Make sure you're using the right selector!
   const inputBox = document.querySelector('');
   
@@ -172,9 +178,14 @@ function reverse(event) {
 
 
   /*
-    TODO: Print out the numbers from 1 to the number they typed in, as long as they are divisible by 7 or 13.
+    TODO: Print out the string, but in reverse. Do _not_ print out each character from the string individually; this would be pretty weird behavior when someone wants to see the reversed string of what they typed in!
+    
+    Guidelines: 
+    * You will find solutions on the internet that involve using `split` to make the string into an array. This is _not_ the correct solution for this exercise! Besides being incredibly inefficient (although this is a matter of principle more than app speed), this solution would teach you nothing about how to iterate over strings--and probably nothing about iterating over arrays either, since we don't have the foundational knowledge of arrays yet.
+    * To get a complete string, we'll have to build a new string entirely.
+    * It would probably _not_ make sense to go through the user input string in regular, 0-length order.
 
-    Use the pre-defined `printValue` function below to print out each line,
+    Use the pre-defined `printValue` function below to print out the result,
     giving it the value you want to print.
     
     Essentially, you can use `printValue` the same way you would `console.log`,
@@ -200,26 +211,6 @@ function printValue(value) {
   const listItem = document.createElement('li');
   // Put its value as its contents.
   listItem.innerText = value;
-
-  /*
-    Stretch goal TODO:
-    Before we append it to the list, let's style this list item.
-    Give it the following (easy but not particularly good) CSS, using properties
-    on [element].style. See `printValueStrong` below for a couple examples.
-
-    Although I'm using CSS to demonstrate what we want, note that we want you to
-    use JavaScript for this. Also note that there's no kebab case in JavaScript!
-
-    li {
-      font-size: 2em;
-      color: blue;
-      margin-top: 5px;
-    }
-    
-    If you want to set the values of these properties to something else, feel
-    free! But do use these three properties.
-    
-  */
 
   // Find the unordered list we've made into a results console.
   const list = document.querySelector('.list')
