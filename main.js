@@ -107,12 +107,15 @@ function nasafy(event) {
 
   let current = userInput;
 
-  while(current >= 1) {
-    printValue(current);
+  while(current >= 0) {
+    if (current === 0) {
+      printValue('Blastoff!');
+    } else {
+      printValue(current);
+    }
     current = current - 1;
   }
 
-  printValue('Blastoff!');
 
   /*
     Stretch goal TODO:
@@ -141,66 +144,72 @@ function crazify(event) {
   // TODO: Use the variable you saved in the above step to dive deeper into the
   // object and find the value the user has added there. Save it to a variable.
   
-  const userInput = inputBox.value;
+  const userInput = inputBox.value.toLowerCase();
 
   /*
     TODO: Loop through and capitalize every even-numbered character. That is, if the user's string is 7 characters long, the 2nd, 4th, and 6th characters should all be capitalized.
     
     Hint: you'll probably have to "build" a new string as you loop.
     
-    Use the pre-defined `printValue` function below to print out result,
+    Use the pre-defined `printValue` function below to print out the result,
     giving it the value you want to print.
   */
   
-  let crazified = '';
-  let i = 0;
-  while (i < userInput.length) {
-    if (i % 2 === 1) {
-      crazified = crazified + userInput[i].toUpperCase();
-    } else {
-      crazified = crazified + userInput[i];
-    }
+  // let crazified = '';
+  // let i = 0;
+  // while (i < userInput.length) {
+  //   if (i % 2 === 1) {
+  //     crazified = crazified + userInput[i].toUpperCase();
+  //   } else {
+  //     crazified = crazified + userInput[i];
+  //   }
     
-    i = i + 1;
-  }
+  //   console.log('added ' + crazified[crazified.length - 1]);
+  //   console.log('we now have: ' + crazified);
+  //   i = i + 1;
+  // }
 
   /*
     Stretch goal TODOS:
     * If you haven't already, make sure capitalized user inputs get crazified too. "BANANA" crazified should be "bAnAnA", not "BANANA"!
 
-    let crazified = '';
-  let i = 0;
-  while (i < userInput.length) {
-    if (i % 2 === 1) {
-      crazified = crazified + userInput[i].toUpperCase();
-    } else {
-      crazified = crazified + userInput[i].toLowerCase();
-    }
+    */
+
+  // let crazified = '';
+  // let i = 0;
+  // while (i < userInput.length) {
+  //   if (i % 2 === 1) {
+  //     crazified = crazified + userInput[i].toUpperCase();
+  //   } else {
+  //     crazified = crazified + userInput[i].toLowerCase();
+  //   }
     
-    i = i + 1;
-  }
+  //   i = i + 1;
+  // }
+
+  /*
     * Only count the characters that are in the alphabet when you're considering what to capitalize. Without this adjustment, "hey you" comes out as "hEy yOu", with the space "capitalized" (whatever that means!). Make it result in "hEy YoU" instead!
 
     
   */
 
-  // let crazified = '';
-  // let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  // let letterIndex = 0;
-  // let i = 0;
-  // while (i < userInput.length) {
-  //   if (letterIndex % 2 === 1) {
-  //     crazified = crazified + userInput[i].toUpperCase();
-  //   } else {
-  //     crazified = crazified + userInput[i].toLowerCase();
-  //   }
+  let crazified = '';
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  let letterCount = 0;
+  let i = 0;
+  while (i < userInput.length) {
+    if (letterCount % 2 === 1) {
+      crazified = crazified + userInput[i].toUpperCase();
+    } else {
+      crazified = crazified + userInput[i].toLowerCase();
+    }
 
-  //   if (alphabet.includes(userInput[i])) {
-  //     letterIndex = letterIndex + 1;
-  //   }
+    if (alphabet.includes(userInput[i])) {
+      letterCount = letterCount + 1;
+    }
     
-  //   i = i + 1;
-  // }
+    i = i + 1;
+  }
   
   printValue(crazified);
 
@@ -300,14 +309,14 @@ function luckify(event) {
     giving it the value you want to print.
   */
 
-  let count = 0;
+  // let count = 1;
 
-  while (count < 5) {
-    const random = Math.ceil(Math.random() * userInput);
-    printValue(random);
+  // while (count <= 5) {
+  //   const random = Math.ceil(Math.random() * userInput);
+  //   printValue(random);
 
-    count = count + 1;
-  }
+  //   count = count + 1;
+  // }
 
   /*
     Stretch Goal TODOS:
@@ -322,23 +331,23 @@ function luckify(event) {
   // let num4 = 0;
   // let num5 = 0;
 
-  // while (!done) {
+  // while (!done /* or: done === false */) {
   //   const random = Math.ceil(Math.random() * userInput);
-  //   if (!num1) {
+  //   if (num1 === 0) {
   //     num1 = random;
-  //   } else if (!num2) {
+  //   } else if (num2 === 0) {
   //     if (random !== num1) {
   //       num2 = random;
   //     }
-  //   } else if (!num3) {
+  //   } else if (num3 === 0) {
   //     if (random !== num1 && random !== num2) {
   //       num3 = random;
   //     }
-  //   } else if (!num4) {
+  //   } else if (num4 === 0) {
   //     if (random !== num1 && random !== num2 && random !== num3) {
   //       num4 = random;
   //     }
-  //   } else if (!num5) {
+  //   } else if (num5 === 0) {
   //     if (random !== num1 && random !== num2 && random !== num3 && random !== num4) {
   //       num5 = random;
   //     }
@@ -365,6 +374,7 @@ function luckify(event) {
   //   }
   // }
 
+
   /*
     * If you're preventing them getting the same number, but they type in, say, a 3, your browser will enter an infinite loop, as you can't get 5 numbers from 1-3 without repeating a number. But you _could_ have it simply exit the loop earlier if the user entered a lower number than 5.
   */
@@ -384,18 +394,18 @@ function luckify(event) {
     * If you get a lucky number of 15, _some_ solutions to the above will prevent a 1 from coming afterwards, as it will consider the 1 digit in 15 as an instance of 1 having already occurred. (Feel free to test this with 19 as an input, and see if a number with a 1 digit is ever followed by a 1.) One solution to this involves the string method `padStart`... but feel free to find a different way!
   */
 
-  // let count = 0;
-  // let numbers = '';
+  let count = 0;
+  let numbers = '';
 
-  // while (count < 5 && count < userInput) {
-  //   const random = Math.ceil(Math.random() * userInput);
-  //   const randomString = random.toString().padStart(userInput.length, 0)
-  //   if (!(numbers.includes(randomString))) {
-  //     numbers = numbers +  '|' + randomString;
-  //     printValue(random);
-  //     count = count + 1;
-  //   }
-  // }
+  while (count < 5 && count < userInput) {
+    const random = Math.ceil(Math.random() * userInput);
+    const randomString = random.toString().padStart(userInput.length, 0)
+    if (!(numbers.includes(randomString))) {
+      numbers = numbers +  '|' + randomString;
+      printValue(randomString);
+      count = count + 1;
+    }
+  }
 
 
   /*
